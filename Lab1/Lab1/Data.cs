@@ -11,6 +11,6 @@ namespace Lab1
         public List<Organisation> Organisations { get; set; }
         public List<Donor> Donors { get; set; }
         public List<Project> Projects { get; set; }
-        public Report Report { get; set; }
+        public List<Report> Reports { get; set; }
     }
 }
