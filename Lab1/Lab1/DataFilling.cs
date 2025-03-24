@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab1
 {
-    public class Donor
+    internal class DataFilling
     {
-        public int DonorId { get; set; }
-        public required string DonorName { get; set; }   
     }
 }

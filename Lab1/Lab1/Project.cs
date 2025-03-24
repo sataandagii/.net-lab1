@@ -8,8 +8,9 @@ namespace Lab1
 {
     public class Project
     {
+        public int ProjectId { get; set; }
         public required string ProjectName { get; set; }
-        public Organisation ProjectRealisator { get; set; } 
+        public int OrganisationId { get; set; } 
 
     }
 }
