@@ -35,8 +35,34 @@ namespace Lab1
             //                        grouped.Sum(joined => joined.report.RecievedMoney) > 1000)
             //                        .Select(g => g.Key);
 
+            Console.WriteLine("1. Знайти донорів, які пожертвували в 3 і більше різні фонди, причому загальна сума перевищує 10000 грн.");
             foreach (var name in query1)
-                Console.WriteLine($"{name}");
+                Console.WriteLine($"\t{name}");
+        }
+
+        public void Last3Months()
+        {
+            //var query2 = from organisation in Data.Organisations
+            //             join report in Data.Reports on organisation.OrganisationId equals report.OrganisationId
+            //             where report.DateWhenRecieved >= DateTime.Now.AddMonths(-3)
+            //             group report by organisation.OrganisationName into groupedReports
+            //             where groupedReports.Sum(rep => rep.SpentMoney) <= groupedReports.Sum(rep => rep.RecievedMoney) / 2
+            //             select groupedReports.Key;
+
+
+            var query2 = Data.Organisations.Join(Data.Reports,
+                                            organisation => organisation.OrganisationId,
+                                            report => report.OrganisationId,
+                                            (organisation, report) => new { organisation, report })
+                                            .Where(joined => joined.report.DateWhenRecieved >= DateTime.Now.AddMonths(-3))
+                                            .GroupBy(joined => joined.organisation.OrganisationName)
+                                            .Where(grouped => grouped.Sum(joined => joined.report.SpentMoney) <=
+                                            grouped.Sum(joined => joined.report.RecievedMoney) / 2)
+                                            .Select(g => g.Key);
+
+            Console.WriteLine("2. Визначити фонди, які отримали найбільше коштів за останній\r\nквартал, але витратили менше 50%.");
+            foreach (var name in query2)
+                Console.WriteLine($"\t{name}");
         }
 
     }

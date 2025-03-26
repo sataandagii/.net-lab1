@@ -12,7 +12,7 @@ namespace Lab1
         public int DonorId { get; set; }
         public int RecievedMoney { get; set; }
         public int SpentMoney { get; set; }
-        public DateTime DataWhenRecieved { get; set; }
+        public DateTime DateWhenRecieved { get; set; }
 
     }
 }

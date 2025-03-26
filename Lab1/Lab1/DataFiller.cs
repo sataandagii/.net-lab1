@@ -201,7 +201,7 @@ namespace Lab1
                     DonorId = 1, 
                     RecievedMoney = 500, 
                     SpentMoney = 380, 
-                    DataWhenRecieved = new DateTime(2025, 3, 24)
+                    DateWhenRecieved = new DateTime(2025, 3, 24)
                 },
 
                 new Report()
@@ -210,7 +210,7 @@ namespace Lab1
                     DonorId = 1,
                     RecievedMoney = 450,
                     SpentMoney = 300,
-                    DataWhenRecieved = new DateTime(2025, 1, 14)
+                    DateWhenRecieved = new DateTime(2025, 1, 14)
                 },
 
                 new Report()
@@ -219,7 +219,7 @@ namespace Lab1
                     DonorId = 1,
                     RecievedMoney = 900,
                     SpentMoney = 840,
-                    DataWhenRecieved = new DateTime(2025, 2, 21)
+                    DateWhenRecieved = new DateTime(2025, 2, 21)
                 },
 
                 new Report()
@@ -227,8 +227,8 @@ namespace Lab1
                     OrganisationId = 4,
                     DonorId = 2,
                     RecievedMoney = 350,
-                    SpentMoney = 225,
-                    DataWhenRecieved = new DateTime(2025, 3, 4)
+                    SpentMoney = 120,
+                    DateWhenRecieved = new DateTime(2025, 3, 4)
                 },
 
                 new Report()
@@ -237,7 +237,7 @@ namespace Lab1
                     DonorId = 2,
                     RecievedMoney = 600,
                     SpentMoney = 300,
-                    DataWhenRecieved = new DateTime(2025, 2, 13)
+                    DateWhenRecieved = new DateTime(2025, 2, 13)
                 },
 
                 new Report()
@@ -246,7 +246,7 @@ namespace Lab1
                     DonorId = 2,
                     RecievedMoney = 600,
                     SpentMoney = 300,
-                    DataWhenRecieved = new DateTime(2025, 2, 13)
+                    DateWhenRecieved = new DateTime(2025, 2, 13)
                 },
 
                 new Report()
@@ -255,7 +255,7 @@ namespace Lab1
                     DonorId = 3,
                     RecievedMoney = 600,
                     SpentMoney = 300,
-                    DataWhenRecieved = new DateTime(2025, 2, 13)
+                    DateWhenRecieved = new DateTime(2025, 2, 13)
                 }
 
             };
