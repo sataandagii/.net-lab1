@@ -113,10 +113,42 @@ namespace Lab1
                          select new
                          {
                              DonorName = Data.Donors.First(d => d.DonorId == groupedReports.Key).DonorName,
-                             Average = groupedReports.Average(rep => (rep.SpentMoney / rep.RecievedMoney) * 200)
+                             Average = groupedReports.Average(rep => (rep.SpentMoney / rep.RecievedMoney) * 100)
                          };
 
-            Console.WriteLine("4. Знайти донорів, які фінансували принаймні три різні організації, де кожна організація реалізувала хоча б два проєкти, і визначити\r\nсередній відсоток витрат на адміністративні потреби у цих проєктах");
+
+            //var organisationsWith2Projects = Data.Projects
+            //                                .GroupBy(project => project.OrganisationId)
+            //                                .Where(grouped => grouped.Count() >= 2)
+            //                                .Select(grouped => grouped.Key);
+
+            //var validReports = Data.Reports
+            //                  .Where(report => organisationsWith2Projects.Contains(report.OrganisationId))
+            //                  .Select(report => new
+            //                  {
+            //                      report.DonorId,
+            //                      report.OrganisationId,
+            //                      report.SpentMoney,
+            //                      report.RecievedMoney,
+            //                  });
+
+            //var donorsWith3Organisations = validReports
+            //                              .GroupBy(report => report.DonorId)
+            //                              .Where(grouped => grouped.Select(r => r.OrganisationId).Distinct().Count() >= 3)
+            //                              .Select (grouped => grouped.Key);
+
+            //var query4 = validReports
+            //            .Where(report => donorsWith3Organisations.Contains(report.DonorId))
+            //            .GroupBy(report => report.DonorId)
+            //            .Select(grouped => new
+            //            {
+            //                DonorName = Data.Donors.First(d => d.DonorId == grouped.Key).DonorName,
+            //                Average = grouped.Average(rep => (rep.SpentMoney / rep.RecievedMoney) * 100)
+            //            });
+
+
+
+            Console.WriteLine("4. Знайти донорів, які фінансували принаймні три різні організації, де кожна організація реалізувала хоча б два проєкти, і визначити середній відсоток витрат на адміністративні потреби у цих проєктах");
 
             foreach (var name in query4)
                 Console.WriteLine($"\tДонор: {name.DonorName}, Відсоток витрат: {name.Average}%");
