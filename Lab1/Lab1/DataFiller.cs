@@ -46,6 +46,18 @@ namespace Lab1
                 {
                     OrganisationId = 5,
                     OrganisationName = "Organisation 5"
+                },
+
+                new Organisation()
+                {
+                    OrganisationId = 6,
+                    OrganisationName = "Organisation 6"
+                },
+
+                new Organisation()
+                {
+                    OrganisationId = 7,
+                    OrganisationName = "Organisation 7"
                 }
             };
 
@@ -215,7 +227,7 @@ namespace Lab1
 
                 new Report()
                 {
-                    OrganisationId = 3,
+                    OrganisationId = 7,
                     DonorId = 1,
                     RecievedMoney = 900,
                     SpentMoney = 840,
@@ -242,7 +254,7 @@ namespace Lab1
 
                 new Report()
                 {
-                    OrganisationId = 1,
+                    OrganisationId = 6,
                     DonorId = 2,
                     RecievedMoney = 600,
                     SpentMoney = 300,
@@ -251,10 +263,121 @@ namespace Lab1
 
                 new Report()
                 {
-                    OrganisationId = 1,
+                    OrganisationId = 4,
                     DonorId = 3,
                     RecievedMoney = 600,
                     SpentMoney = 300,
+                    DateWhenRecieved = new DateTime(2025, 2, 13)
+                }, 
+
+                //для 3 запиту
+                new Report()
+                {
+                    OrganisationId = 1,
+                    DonorId = 4,
+                    RecievedMoney = 700,
+                    SpentMoney = 500,
+                    DateWhenRecieved = new DateTime(2025, 2, 13)
+                },
+
+                new Report()
+                {
+                    OrganisationId = 2,
+                    DonorId = 4,
+                    RecievedMoney = 980,
+                    SpentMoney = 760,
+                    DateWhenRecieved = new DateTime(2025, 2, 13)
+                },
+
+                new Report()
+                {
+                    OrganisationId = 3,
+                    DonorId = 4,
+                    RecievedMoney = 200,
+                    SpentMoney = 200,
+                    DateWhenRecieved = new DateTime(2025, 2, 13)
+                },
+
+                new Report()
+                {
+                    OrganisationId = 4,
+                    DonorId = 4,
+                    RecievedMoney = 600,
+                    SpentMoney = 300,
+                    DateWhenRecieved = new DateTime(2025, 2, 13)
+                },
+
+                new Report()
+                {
+                    OrganisationId = 5,
+                    DonorId = 4,
+                    RecievedMoney = 400,
+                    SpentMoney = 300,
+                    DateWhenRecieved = new DateTime(2025, 2, 13)
+                },
+
+                new Report()
+                {
+                    OrganisationId = 6,
+                    DonorId = 4,
+                    RecievedMoney = 700,
+                    SpentMoney = 400,
+                    DateWhenRecieved = new DateTime(2025, 2, 13)
+                },
+
+
+                //
+                new Report()
+                {
+                    OrganisationId = 7,
+                    DonorId = 5,
+                    RecievedMoney = 700,
+                    SpentMoney = 500,
+                    DateWhenRecieved = new DateTime(2025, 2, 13)
+                },
+
+                new Report()
+                {
+                    OrganisationId = 2,
+                    DonorId = 5,
+                    RecievedMoney = 980,
+                    SpentMoney = 760,
+                    DateWhenRecieved = new DateTime(2025, 2, 13)
+                },
+
+                new Report()
+                {
+                    OrganisationId = 3,
+                    DonorId = 5,
+                    RecievedMoney = 200,
+                    SpentMoney = 200,
+                    DateWhenRecieved = new DateTime(2025, 2, 13)
+                },
+
+                new Report()
+                {
+                    OrganisationId = 4,
+                    DonorId = 5,
+                    RecievedMoney = 600,
+                    SpentMoney = 300,
+                    DateWhenRecieved = new DateTime(2025, 2, 13)
+                },
+
+                new Report()
+                {
+                    OrganisationId = 5,
+                    DonorId = 5,
+                    RecievedMoney = 400,
+                    SpentMoney = 300,
+                    DateWhenRecieved = new DateTime(2025, 2, 13)
+                },
+
+                new Report()
+                {
+                    OrganisationId = 6,
+                    DonorId = 5,
+                    RecievedMoney = 700,
+                    SpentMoney = 400,
                     DateWhenRecieved = new DateTime(2025, 2, 13)
                 }
 

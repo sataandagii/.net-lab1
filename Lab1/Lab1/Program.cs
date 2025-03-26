@@ -13,6 +13,7 @@
             DataQueries query = new DataQueries(data);
             query.DonatedTo3Organisations();
             query.Last3Months();
+            query.Find6OrMoreUniqueDonations();
         }
 
     }
