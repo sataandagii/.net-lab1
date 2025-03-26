@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Lab1
 {
-    public class DataFilling
+    public class DataFiller
     {
-        public DataFilling(Data data) 
+        public DataFiller(Data data) 
         {
-            this.Data = data;
+            Data = data;
         }
 
         public Data Data { get; set; }
@@ -199,8 +199,8 @@ namespace Lab1
                 {
                     OrganisationId = 1,
                     DonorId = 1, 
-                    RecievedMoney = 100, 
-                    SpentMoney = 70, 
+                    RecievedMoney = 500, 
+                    SpentMoney = 380, 
                     DataWhenRecieved = new DateTime(2025, 3, 24)
                 },
 
@@ -208,8 +208,8 @@ namespace Lab1
                 {
                     OrganisationId = 2,
                     DonorId = 1,
-                    RecievedMoney = 150,
-                    SpentMoney = 70,
+                    RecievedMoney = 450,
+                    SpentMoney = 300,
                     DataWhenRecieved = new DateTime(2025, 1, 14)
                 },
 
@@ -217,17 +217,17 @@ namespace Lab1
                 {
                     OrganisationId = 3,
                     DonorId = 1,
-                    RecievedMoney = 200,
-                    SpentMoney = 90,
+                    RecievedMoney = 900,
+                    SpentMoney = 840,
                     DataWhenRecieved = new DateTime(2025, 2, 21)
                 },
 
                 new Report()
                 {
                     OrganisationId = 4,
-                    DonorId = 1,
-                    RecievedMoney = 100,
-                    SpentMoney = 10,
+                    DonorId = 2,
+                    RecievedMoney = 350,
+                    SpentMoney = 225,
                     DataWhenRecieved = new DateTime(2025, 3, 4)
                 },
 
@@ -235,10 +235,28 @@ namespace Lab1
                 {
                     OrganisationId = 5,
                     DonorId = 2,
-                    RecievedMoney = 300,
-                    SpentMoney = 120,
+                    RecievedMoney = 600,
+                    SpentMoney = 300,
                     DataWhenRecieved = new DateTime(2025, 2, 13)
                 },
+
+                new Report()
+                {
+                    OrganisationId = 1,
+                    DonorId = 2,
+                    RecievedMoney = 600,
+                    SpentMoney = 300,
+                    DataWhenRecieved = new DateTime(2025, 2, 13)
+                },
+
+                new Report()
+                {
+                    OrganisationId = 1,
+                    DonorId = 3,
+                    RecievedMoney = 600,
+                    SpentMoney = 300,
+                    DataWhenRecieved = new DateTime(2025, 2, 13)
+                }
 
             };
         }
