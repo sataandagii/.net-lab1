@@ -15,6 +15,9 @@
             query.Last3Months();
             query.Find6OrMoreUniqueDonations();
             query.DonorsWith3OrganisationsWith2Projects();
+
+            query.DonorFiltration();
+            query.GroupProjectsOnOrganisations();
         }
 
     }

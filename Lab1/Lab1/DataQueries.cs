@@ -36,8 +36,8 @@ namespace Lab1
             //                        .Select(g => g.Key);
 
             Console.WriteLine("1. Знайти донорів, які пожертвували в 3 і більше різні фонди, причому загальна сума перевищує 10000 грн.");
-            foreach (var name in query1)
-                Console.WriteLine($"\t{name}");
+            foreach (var donor in query1)
+                Console.WriteLine($"\t{donor}");
         }
 
         public void Last3Months()
@@ -61,8 +61,8 @@ namespace Lab1
             //                                .Select(g => g.Key);
 
             Console.WriteLine("2. Визначити фонди, які отримали найбільше коштів за останній\r\nквартал, але витратили менше 50%.");
-            foreach (var name in query2)
-                Console.WriteLine($"\t{name}");
+            foreach (var organisation in query2)
+                Console.WriteLine($"\t{organisation}");
         }
 
         public void Find6OrMoreUniqueDonations()
@@ -87,8 +87,8 @@ namespace Lab1
 
             Console.WriteLine("3. Визначити донорів, які зробили внески у більше ніж 5 фондів, але не більше одного разу в кожен фонд.");
 
-            foreach (var name in query3)
-                Console.WriteLine($"\t{name}");
+            foreach (var donor in query3)
+                Console.WriteLine($"\t{donor}");
         }
 
         public void DonorsWith3OrganisationsWith2Projects()
@@ -150,8 +150,40 @@ namespace Lab1
 
             Console.WriteLine("4. Знайти донорів, які фінансували принаймні три різні організації, де кожна організація реалізувала хоча б два проєкти, і визначити середній відсоток витрат на адміністративні потреби у цих проєктах");
 
-            foreach (var name in query4)
-                Console.WriteLine($"\tДонор: {name.DonorName}, Відсоток витрат: {name.Average}%");
+            foreach (var donor in query4)
+                Console.WriteLine($"\tДонор: {donor.DonorName}, Відсоток витрат: {donor.Average}%");
+
+        }
+
+        public void DonorFiltration()
+        {
+            var query5 = from donor in Data.Donors
+                         join report in Data.Reports on donor.DonorId equals report.DonorId
+                         group report by donor.DonorName into groupedReports
+                         where groupedReports.Sum(grouped => grouped.RecievedMoney) > 800
+                         select groupedReports.Key;
+
+
+            Console.WriteLine("5. Визначити донорів, які зробили внесок у суммі більше за 800");
+
+            foreach (var donor in query5)
+                Console.WriteLine($"\t{donor}");
+        }
+
+        public void GroupProjectsOnOrganisations()
+        {
+            var query6 = from organisation in Data.Organisations
+                         join project in Data.Projects on organisation.OrganisationId equals project.OrganisationId into groupedProjects
+                         select new
+                         {
+                             organisationName = organisation.OrganisationName,
+                             projectCount = groupedProjects.Count(),
+                         };
+
+            Console.WriteLine("6. Для кожної організації визначити кількість реалізованих проєктів");
+
+            foreach(var element in query6)
+                Console.WriteLine($"Організація: {element.organisationName}, кількість проєктів: {element.projectCount}");
 
         }
 
