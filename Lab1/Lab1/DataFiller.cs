@@ -58,6 +58,12 @@ namespace Lab1
                 {
                     OrganisationId = 7,
                     OrganisationName = "Organisation 7"
+                },
+
+                new Organisation()
+                {
+                    OrganisationId = 8,
+                    OrganisationName = "Organisation 8"
                 }
             };
 
@@ -202,6 +208,12 @@ namespace Lab1
                 {
                     ProjectName = "Project 16",
                     OrganisationId = 5
+                },
+
+                new Project()
+                {
+                    ProjectName = "Project 17",
+                    OrganisationId = 8
                 }
             };
 
@@ -223,6 +235,15 @@ namespace Lab1
                     RecievedMoney = 450,
                     SpentMoney = 300,
                     DateWhenRecieved = new DateTime(2025, 1, 14)
+                },
+
+                new Report()
+                {
+                    OrganisationId = 7,
+                    DonorId = 6,
+                    RecievedMoney = 900,
+                    SpentMoney = 300,
+                    DateWhenRecieved = new DateTime(2025, 1, 1)
                 },
 
                 new Report()

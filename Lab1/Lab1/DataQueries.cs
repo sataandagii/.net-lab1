@@ -187,5 +187,121 @@ namespace Lab1
 
         }
 
+        public void OrganisationsWith3Donors()
+        {
+            var query7 = from organisation in Data.Organisations
+                         join report in Data.Reports on organisation.OrganisationId equals report.OrganisationId
+                         group report by organisation.OrganisationName into groupedReports
+                         where groupedReports.Select(grouped => grouped.DonorId).Distinct().Count() >= 3
+                         select groupedReports.Key;
+
+            Console.WriteLine("7. Обрати організації, до яких вносило пожертвування 3 або більше різних донори");
+
+            foreach (var element in query7)
+                Console.WriteLine($"{element}");
+
+        }
+
+        public void AverageDonationsFromDonor()
+        {
+            var query8 = from donor in Data.Donors
+                         join report in Data.Reports on donor.DonorId equals report.DonorId
+                         group report by donor.DonorName into groupedReports
+                         select new
+                         {
+                             name = groupedReports.Key,
+                             average = groupedReports.Average(grouped => grouped.RecievedMoney)
+                         };
+
+            Console.WriteLine("8. Для кожного донору розрахувати середнє значення пожертвувань");
+
+            foreach (var element in query8)
+                Console.WriteLine($"Донор: {element.name}, Середнє: {element.average:f3}");
+
+        }
+
+        public void OrganisationsAverage()
+        {
+            var averageMoney = (from report in Data.Reports
+                                group report by report.OrganisationId into groupedReports
+                                select groupedReports.Sum(grouped => grouped.RecievedMoney)).Average();
+
+            var query9 = from organisation in Data.Organisations
+                         join report in Data.Reports on organisation.OrganisationId equals report.OrganisationId
+                         group report by organisation.OrganisationName into groupedReports
+                         where groupedReports.Sum(grouped => grouped.RecievedMoney) > averageMoney
+                         select groupedReports.Key;
+
+            //var averageMoney = Data.Reports
+            //    .GroupBy(report => report.OrganisationId)
+            //    .Select(group => group.Sum(report => report.RecievedMoney))
+            //    .Average();
+
+            Console.WriteLine("9. Знайти такі організації, сума пожертвовань яких привищує середнє значення пожертувань серед усіх організацій");
+
+            foreach (var element in query9)
+                Console.WriteLine($"Організація: {element}");
+        }
+
+        public void ProjectWithoutDonations()
+        {
+            var query10 = from project in Data.Projects
+                          join report in Data.Reports on project.OrganisationId equals report.OrganisationId into reportsGroup
+                          from report in reportsGroup.DefaultIfEmpty() 
+                          where report == null
+                          select project;
+
+
+            Console.WriteLine("10. Знайти такі проєкти, які реалізовані організаціями, до яких не поступало жодного подертвування");
+
+            foreach (var project in query10)
+            {
+                Console.WriteLine($"{project.ProjectName}");
+            }
+
+
+        }
+
+        public void DayWithMostDonations()
+        {
+            var query11 = (from report in Data.Reports
+                           group report by report.DateWhenRecieved into groupedReports
+                           orderby groupedReports.Sum(rep => rep.RecievedMoney) descending
+                           select groupedReports.Key).FirstOrDefault();
+
+            Console.WriteLine("11. Знайти день, коли поступила найбільша сума пожертвувань");
+
+            Console.WriteLine(query11);
+        }
+
+        public void LongestWithoutDonations()
+        {
+            var query12 = (from organisation in Data.Organisations
+                          join report in Data.Reports on organisation.OrganisationId equals report.OrganisationId
+                          group report by organisation.OrganisationName into groupedReports
+                          orderby groupedReports.Max(rep => rep.DateWhenRecieved) ascending
+                          select groupedReports.Key).FirstOrDefault();
+
+            Console.WriteLine("12. Знайти організацію, у яку протягом найбільшого часу не поступало пожертвувань");
+
+            Console.WriteLine(query12);
+        }
+
+        public void DonationsOnlyLastMonth()
+        {
+            var query13 = from organisation in Data.Organisations
+                          join report in Data.Reports on organisation.OrganisationId equals report.OrganisationId into organisationReports
+                          from report in organisationReports.DefaultIfEmpty()
+                          where report == null || report.DateWhenRecieved.Month != 2 
+                          where organisationReports.Any(r => r.DateWhenRecieved.Month == 1)
+                          group organisation by organisation.OrganisationName into groupedOrganisations
+                          select groupedOrganisations.Key;
+
+            Console.WriteLine("13. Організації, які не отримали пожертвувань у лютому, але отримали в січні:");
+            foreach (var organisation in query13)
+                Console.WriteLine(organisation);
+        }
+
+
     }
 }

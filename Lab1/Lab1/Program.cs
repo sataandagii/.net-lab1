@@ -18,6 +18,13 @@
 
             query.DonorFiltration();
             query.GroupProjectsOnOrganisations();
+            query.OrganisationsWith3Donors();
+            query.AverageDonationsFromDonor();
+            query.OrganisationsAverage();
+            query.ProjectWithoutDonations();
+            query.DayWithMostDonations();
+            query.LongestWithoutDonations();
+            query.DonationsOnlyLastMonth();
         }
 
     }
